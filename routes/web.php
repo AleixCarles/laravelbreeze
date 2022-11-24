@@ -28,4 +28,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::middleware(['autentificacio'])->group(function (){
+    Route::get('/privada1',function (){
+        echo'Privada1';
+    });
+    Route::get('/privada2',function (){
+        echo'Privada2';
+    });
+});
+
+
+/*Route::get('/privada1',function (){
+    echo'Privada1';
+})->middleware(['autentificacio']);
+
+Route::get('/privada2',function (){
+    if (!Auth::check()){
+        return redirect(route('login'));
+    }
+    echo'Privada2';
+});*/
+
+
+
+
 require __DIR__.'/auth.php';
